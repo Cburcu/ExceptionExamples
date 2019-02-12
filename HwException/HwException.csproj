@@ -53,7 +53,8 @@
   <ItemGroup>
     <Compile Include="AddCarMethod.cs" />
     <Compile Include="Car.cs" />
-    <Compile Include="CarException.cs" />
+    <Compile Include="CarKmException.cs" />
+    <Compile Include="CarModelException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

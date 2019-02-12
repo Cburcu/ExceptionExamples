@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLog;
 
 namespace HwException
 {
+    public delegate void KmControl(object source);
     public class Car
     {
+        public event KmControl KmControlEvent;
+        public static Logger log = LogManager.GetCurrentClassLogger();
+
         public int Id { get; set; }
         public string Name { get; set; }
         protected int _model;
@@ -18,13 +18,29 @@ namespace HwException
             {
                 if (value < 2010)
                 {
-                    CarException ex = new CarException();
+                    CarModelException ex = new CarModelException();
                     ex.CarModel = value;
                     throw ex;
                 }
 
                 else
                     _model = value;
+            }
+        }
+
+        private int _kilometers;
+        public int Kilometers
+        {
+            get { return _kilometers; }
+
+            set
+            {
+                _kilometers = value;
+                if (value >= 45)
+                {
+                    log.Warn("Km is over 45!");
+                    KmControlEvent(this);
+                }
             }
         }
     }

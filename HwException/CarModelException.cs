@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HwException
 {
-    public class CarException
+    public class CarModelException
         : Exception
     {
         public override string Message => "Araba ile ilgili bir sorun var";
