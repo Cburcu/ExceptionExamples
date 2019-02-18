@@ -6,7 +6,6 @@ namespace HwException
     public class Car
     {
         public event KmControl KmControlEvent;
-        public static Logger log = LogManager.GetCurrentClassLogger();
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -38,7 +37,6 @@ namespace HwException
                 _kilometers = value;
                 if (value >= 45)
                 {
-                    log.Warn("Km is over 45!");
                     KmControlEvent(this);
                 }
             }

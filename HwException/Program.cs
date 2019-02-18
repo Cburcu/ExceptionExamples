@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NLog;
+using NLog.MailKit;
+using NLog.Targets.Wrappers;
 
 namespace HwException
 {
@@ -40,22 +39,13 @@ namespace HwException
             {
                 log.ErrorException($"{modelException.Message}! Car Model={modelException.CarModel}", modelException);
             }
-            finally
-            {
-                foreach (var car in carList)
-                {
-                    //Console.WriteLine($"{car.Name} => {car.Model}");
-                    Console.WriteLine();
-                }
-            }
-
             Console.ReadLine();
         }
 
         private static void Car_KmControlEvent(object ob)
         {
             Console.WriteLine("Km is over 45km! ");
-
+            log.Warn("Km is over 45!");
         }
     }
 }
