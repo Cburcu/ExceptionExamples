@@ -65,9 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCarMethod.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="CarKmException.cs" />
-    <Compile Include="CarModelException.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Exceptions\CarKmException.cs" />
+    <Compile Include="Exceptions\CarModelException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
